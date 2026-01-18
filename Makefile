@@ -4,7 +4,7 @@ export $(shell sed 's/=.*//' .env)
 
 DB_URL=postgres://$(DB_USER):$(DB_PASS)@$(DB_HOST):$(DB_PORT)/$(DB_NAME)?sslmode=disable
 
-MIGRATIONS_DIR=./migrations
+MIGRATIONS_DIR=./internal/migrations
 
 create-migration:
 	@if [ -z "$(name)" ]; then echo "Usage: make create-migration name=add_users"; exit 1; fi
