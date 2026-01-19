@@ -9,10 +9,12 @@ import (
 
 type Config struct {
 	PostgresDSN  string
+	AppName      string
 	AppHost      string
 	AppHttpPort  int
 	AppGrpcPort  int
 	LogLevel     string
+	DebugMode    bool
 	RedisAddr    string
 	KafkaBroker  string
 	HTTPPort     int
@@ -30,10 +32,12 @@ type Config struct {
 
 func Load() *Config {
 	cfg := &Config{
+		AppName:      getEnv("APP_NAME", "base-service"),
 		AppHost:      getEnv("HTTP_HOST", "0.0.0.0"),
 		AppHttpPort:  getEnvAsInt("HTTP_PORT", 8080),
 		AppGrpcPort:  getEnvAsInt("GRPC_PORT", 8081),
 		LogLevel:     getEnv("LOG_LEVEL", "info"),
+		DebugMode:    getEnvAsBool("DEBUG_MODE", false),
 		DBHost:       getEnv("DB_HOST", "localhost"),
 		DBPort:       getEnvAsInt("DB_PORT", 5432),
 		DBName:       getEnv("DB_NAME", "base_service"),
@@ -65,13 +69,15 @@ func Load() *Config {
 
 func getEnv(key, defaultValue string) string {
 	if value, exists := os.LookupEnv(key); exists {
+		fmt.Printf("%s=%s\n", key, value)
 		return value
 	}
+	fmt.Printf("%s=%s\n", key, defaultValue)
 	return defaultValue
 }
 
 func getEnvAsInt(key string, defaultValue int) int {
-	valueStr := getEnv(key, "")
+	valueStr := getEnv(key, strconv.Itoa(defaultValue))
 	if value, err := strconv.Atoi(valueStr); err == nil {
 		return value
 	}
@@ -79,7 +85,7 @@ func getEnvAsInt(key string, defaultValue int) int {
 }
 
 func getEnvAsBool(key string, defaultValue bool) bool {
-	valueStr := getEnv(key, "")
+	valueStr := getEnv(key, strconv.FormatBool(defaultValue))
 	if value, err := strconv.ParseBool(valueStr); err == nil {
 		return value
 	}
