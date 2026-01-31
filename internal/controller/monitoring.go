@@ -1,12 +1,13 @@
 package controller
 
 import (
-	"base-service/internal/service"
 	"context"
-	"github.com/gorilla/mux"
 	"log"
 	"net/http"
 	"time"
+	"user-service/internal/service"
+
+	"github.com/gorilla/mux"
 )
 
 type MonitoringController struct {
