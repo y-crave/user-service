@@ -1,13 +1,15 @@
 package main
 
 import (
-	"database/sql"
 	"fmt"
 	"log"
 	"net/http"
 	"user-service/internal/config"
 	"user-service/internal/controller"
 	"user-service/internal/service"
+
+	"gorm.io/driver/postgres"
+	"gorm.io/gorm"
 
 	"github.com/gorilla/mux"
 	_ "github.com/lib/pq"
@@ -16,9 +18,9 @@ import (
 func main() {
 	cfg := config.Load()
 
-	db, err := sql.Open("postgres", cfg.PostgresDSN)
+	db, err := gorm.Open(postgres.Open(cfg.PostgresDSN), &gorm.Config{})
 	if err != nil {
-		log.Fatal(err)
+		log.Fatalf("failed to connect database: %v", err)
 	}
 	defer db.Close()
 
