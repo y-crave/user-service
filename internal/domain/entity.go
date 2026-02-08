@@ -114,7 +114,7 @@ type Tag struct {
 	ID        uuid.UUID
 	Name      string
 	Volume    int
-	Category  Category
+	Category  *Category
 	CreatedAt time.Time
 	UpdatedAt time.Time
 	DeletedAt *time.Time
