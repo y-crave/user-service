@@ -4,7 +4,7 @@ CREATE TYPE sex_enum as ENUM ('Male', 'Female', 'NotSelected');
 CREATE TYPE target_name_enum AS ENUM ('for_like', 'for_one_day', 'for_all_time');
 
 CREATE TABLE targets (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   name target_name_enum
 );
 
