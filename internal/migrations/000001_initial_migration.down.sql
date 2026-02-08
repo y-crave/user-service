@@ -10,5 +10,4 @@ DROP TYPE IF EXISTS target_name_enum;
 DROP TYPE IF EXISTS sex_enum;
 DROP TYPE IF EXISTS reg_state_enum;
 
-DROP EXTENSION IF EXISTS "uuid-ossp";
 
