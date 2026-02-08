@@ -1,0 +1,13 @@
+DROP TABLE IF EXISTS user_tags;
+DROP TABLE IF EXISTS tags;
+DROP TABLE IF EXISTS pictures;
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS category;
+DROP TABLE IF EXISTS targets;
+
+DROP TYPE IF EXISTS category_name_enum;
+DROP TYPE IF EXISTS target_name_enum;
+DROP TYPE IF EXISTS sex_enum;
+DROP TYPE IF EXISTS reg_state_enum;
+
+
