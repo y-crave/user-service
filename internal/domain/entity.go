@@ -39,9 +39,9 @@ const (
 )
 
 var sexName = map[SexEnum]string{
-	SexMale:     "Мужчина",
-	SexFemale:   "Женщина",
-	NotSelected: "Не выбрано",
+	SexMale:     "Male",
+	SexFemale:   "Female",
+	NotSelected: "NotSelected",
 }
 
 func (e SexEnum) String() string {
@@ -51,15 +51,15 @@ func (e SexEnum) String() string {
 const (
 	Activity CategoryNameEnum = iota
 	Interests
-	Psychograph
+	Psychographer
 	WorldView
 )
 
 var categoryName = map[CategoryNameEnum]string{
-	Activity:    "Активность",
-	Interests:   "Интересы",
-	Psychograph: "Психограф",
-	WorldView:   "Мировозрение",
+	Activity:      "Activity",
+	Interests:     "Interests",
+	Psychographer: "Psychographer",
+	WorldView:     "Worldview",
 }
 
 func (e CategoryNameEnum) String() string {
