@@ -1,8 +1,8 @@
 package domain
 
 import (
-	"time"
 	"github.com/google/uuid"
+	"time"
 )
 
 type RegStateEnum int
@@ -20,12 +20,12 @@ const (
 )
 
 var regStateName = map[RegStateEnum]string{
-	RegStateAgreements: "state_agreements",
-	RegStateName: "state_name",
-	RegStateSex: "state_sex",
-	RegStateMainPicture: "state_main_picture",
+	RegStateAgreements:     "state_agreements",
+	RegStateName:           "state_name",
+	RegStateSex:            "state_sex",
+	RegStateMainPicture:    "state_main_picture",
 	RegStateAnotherPicture: "state_another_picture",
-	RegStateTarget: "state_target",
+	RegStateTarget:         "state_target",
 }
 
 func (e RegStateEnum) String() string {
@@ -39,8 +39,8 @@ const (
 )
 
 var sexName = map[SexEnum]string{
-	SexMale: "Мужчина",
-	SexFemale: "Женщина",
+	SexMale:     "Мужчина",
+	SexFemale:   "Женщина",
 	NotSelected: "Не выбрано",
 }
 
@@ -56,10 +56,10 @@ const (
 )
 
 var categoryName = map[CategoryNameEnum]string{
-	Activity: "Активность",
-	Interests: "Интересы",
+	Activity:    "Активность",
+	Interests:   "Интересы",
 	Psychograph: "Психограф",
-	WorldView: "Мировозрение",
+	WorldView:   "Мировозрение",
 }
 
 func (e CategoryNameEnum) String() string {
@@ -73,8 +73,8 @@ const (
 )
 
 var targetName = map[TargetNameEnum]string{
-	TargetForLike: "for_like",
-	TargetForOneDay: "for_one_day",
+	TargetForLike:    "for_like",
+	TargetForOneDay:  "for_one_day",
 	TargetForAllTime: "for_all_time",
 }
 
@@ -83,47 +83,46 @@ func (e TargetNameEnum) String() string {
 }
 
 type User struct {
-	ID uuid.UUID
-	Email string
+	ID                uuid.UUID
+	Email             string
 	RegistrationState RegStateEnum
-	Name string
-	BIO string
-	Birthdate time.Time
-	Sex SexEnum
-	Location string
-	Height int
-	CreatedAt time.Time
-	UpdatedAt time.Time
-	DeletedAt *time.Time
+	Name              string
+	BIO               string
+	Birthdate         time.Time
+	Sex               SexEnum
+	Location          string
+	Height            int
+	CreatedAt         time.Time
+	UpdatedAt         time.Time
+	DeletedAt         *time.Time
 }
 
 type Picture struct {
-	ID uuid.UUID
-	IsMain bool
+	ID       uuid.UUID
+	IsMain   bool
 	Approved bool
-	Path string
+	Path     string
 }
 
 type Target struct {
-	ID uuid.UUID
+	ID   uuid.UUID
 	Name TargetNameEnum
 }
 
 type Tag struct {
-	ID uuid.UUID
-	Name string
-	Volume int
+	ID        uuid.UUID
+	Name      string
+	Volume    int
 	CreatedAt time.Time
 	UpdatedAt time.Time
 	DeletedAt *time.Time
 }
 
 type Category struct {
-	ID uuid.UUID
-	Name CategoryNameEnum
-	Volume int
+	ID        uuid.UUID
+	Name      CategoryNameEnum
+	Volume    int
 	CreatedAt time.Time
-	UpdetedAt time.Time
+	UpdatedAt time.Time
 	DeletedAt *time.Time
 }
-
