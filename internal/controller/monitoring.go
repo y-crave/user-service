@@ -2,7 +2,6 @@ package controller
 
 import (
 	"context"
-	"github.com/gorilla/mux"
 	"log"
 	"net/http"
 	"time"

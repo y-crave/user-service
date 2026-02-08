@@ -1,15 +1,15 @@
 package main
 
 import (
-	"database/sql"
 	"fmt"
-	"github.com/gorilla/mux"
-	_ "github.com/lib/pq"
 	"log"
 	"net/http"
 	"user-service/internal/config"
 	"user-service/internal/controller"
 	"user-service/internal/service"
+
+	"github.com/gorilla/mux"
+	_ "github.com/lib/pq"
 )
 
 func main() {
