@@ -1,5 +1,5 @@
 CREATE TYPE reg_state_enum as ENUM ('state_agreements', 'state_name', 'state_sex', 'state_main_picture', 'state_another_picture', 'state_target');
-CREATE TYPE sex_enum as ENUM ('Male', 'Female', 'Not selected');
+CREATE TYPE sex_enum as ENUM ('Мужчина', 'Женщина', 'Не выбрано');
 
 CREATE TYPE target_name_enum AS ENUM ('for_like', 'for_one_day', 'for_all_time');
 

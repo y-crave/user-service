@@ -99,6 +99,7 @@ type User struct {
 
 type Picture struct {
 	ID       uuid.UUID
+	UserID   uuid.UUID
 	IsMain   bool
 	Approved bool
 	Path     string
@@ -113,6 +114,7 @@ type Tag struct {
 	ID        uuid.UUID
 	Name      string
 	Volume    int
+	Category  Category
 	CreatedAt time.Time
 	UpdatedAt time.Time
 	DeletedAt *time.Time
