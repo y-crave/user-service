@@ -2,11 +2,13 @@ package user_repo
 
 import (
 	"user-service/internal/domain"
+
+	"github.com/google/uuid"
 )
 
-func toDomainUser(user GormUser) domain.User {
-	return domain.User{
-		ID:                user.ID,
+func toDomainUser(u *GormUser) *domain.User {
+	return &domain.User{
+		ID:                uuid.MustParse(u.ID),
 		Email:             user.Email,
 		RegistrationState: user.RegistrationState,
 		Name:              user.Name,
